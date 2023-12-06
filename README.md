@@ -1,4 +1,5 @@
 # Panacea: Panoramic and Controllable Video Generation for Autonomous Driving
+**Official Repository of Panacea.**
 
 > [Paper] [**Panacea: Panoramic and Controllable Video Generation for Autonomous Driving**](https://arxiv.org/abs/2311.16813),            
 Yuqing Wen<sup>1*&dagger;</sup>, Yucheng Zhao<sup>2*</sup>,Yingfei Liu<sup>2*</sup>, 
