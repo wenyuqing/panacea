@@ -14,6 +14,7 @@ Yuqing Wen<sup>1*&dagger;</sup>, Yucheng Zhao<sup>2*</sup>,Yingfei Liu<sup>2*</s
 <sup>*</sup>Equal Contribution, 
             <sup>&dagger;</sup>This work was done during the internship at MEGVII, 
             <sup>&Dagger;</sup>Corresponding Author.
+
 > [WebPage] https://panacea-ad.github.io/
 
 <div class="root-content" style="padding-top: 10px; width: 65%;">
