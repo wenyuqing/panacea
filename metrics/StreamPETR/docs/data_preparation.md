@@ -7,7 +7,7 @@ Download the [nuScenes dataset](https://www.nuscenes.org/download) to `./data/nu
 
 **2. Infos file**
 
-[train](https://github.com/exiawsh/storage/releases/download/v1.0/nuscenes2d_temporal_infos_train.pkl), [val](https://github.com/exiawsh/storage/releases/download/v1.0/nuscenes2d_temporal_infos_val.pkl) and [test](https://github.com/exiawsh/storage/releases/download/v1.0/nuscenes2d_temporal_infos_test.pkl) pkl.
+[train](https://github.com/exiawsh/storage/releases/download/v1.0/nuscenes2d_temporal_infos_train.pkl), [train ego](https://huggingface.co/datasets/orangewen/Gen-nuScenes/resolve/main/nuscenes2d_ego_temporal_infos_train.pkl?download=true), [val](https://github.com/exiawsh/storage/releases/download/v1.0/nuscenes2d_temporal_infos_val.pkl), [val ego](https://huggingface.co/datasets/orangewen/Gen-nuScenes/resolve/main/nuscenes2d_ego_temporal_infos_val.pkl?download=true) pkl.
 
 
 After preparation, you will be able to see the following directory structure:  
@@ -29,6 +29,8 @@ StreamPETR
 |   |   ├── v1.0-trainval/
 |   |   ├── nuscenes2d_temporal_infos_train.pkl
 |   |   ├── nuscenes2d_temporal_infos_val.pkl
+|   |   ├── nuscenes2d_ego_temporal_infos_train.pkl
+|   |   ├── nuscenes2d_ego_temporal_infos_val.pkl
 ```
 ## Gen-nuScenes Dataset
 **1. Download Gen-nuScenes**

@@ -7,7 +7,7 @@ This repository is for Panancea's evaluation, based on the implementation of Str
 
 Please follow our documentation step by step.
 
-1. [**Environment Setup.**](./docs/setup.md)
+1. [**Environment Setup.**](./docs/streampetr_environment.md)
 2. [**Data Preparation.**](./docs/data_preparation.md)
 
 ## Evaluation on Gen-nuScenes

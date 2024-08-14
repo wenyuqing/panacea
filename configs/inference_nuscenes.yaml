@@ -1,0 +1,130 @@
+FrameLength: &FrameLength 8
+cond_image_type: &cond_image_type final_cond_zero  
+SampleStep: &SampleStep 25
+AttenType: &AttenType intra-view
+InsertCrossView: &InsertCrossView True #you must specify AttenType intra-view
+model:
+  target: sgm.models.diffusion.DiffusionEngine3D
+  params:
+    share_noise_level: 0.07
+    use_ema: False 
+    scale_factor: 0.18215  # VAE scale_factor
+    disable_first_stage_autocast: True 
+    freeze_type: none
+    wrapper_type: "OPENAIUNETWRAPPERCONTROLLDM3D"
+    log_keys:
+      - txt
+
+    denoiser_config:
+      target: sgm.modules.diffusionmodules.denoiser.DiscreteDenoiser
+      params:
+        num_idx: 1000
+
+        weighting_config:
+          target: sgm.modules.diffusionmodules.denoiser_weighting.EpsWeighting
+        scaling_config:
+          target: sgm.modules.diffusionmodules.denoiser_scaling.EpsScaling
+        discretization_config:
+          target: sgm.modules.diffusionmodules.discretizer.LegacyDDPMDiscretization
+
+    network_config:
+      target: sgm.modules.diffusionmodules.controlmodel.ControlledUNetModel3D
+      params:
+        insert_crossview: *InsertCrossView
+        spatial_only_attn_type: *AttenType 
+        use_checkpoint: True
+        use_fp16: True
+        in_channels: 8
+        out_channels: 4
+        model_channels: 320
+        attention_resolutions: [ 4, 2, 1 ]
+        num_res_blocks: 2
+        channel_mult: [ 1, 2, 4, 4 ]
+        num_head_channels: 64
+        use_spatial_transformer: True
+        use_linear_in_transformer: True
+        transformer_depth: 1
+        context_dim: 1024
+        legacy: False
+        num_frames: *FrameLength
+        alpha: 1
+        controlnet_config:
+          target: sgm.modules.diffusionmodules.controlmodel.ControlNet3D
+          params:
+            insert_crossview: *InsertCrossView
+            spatial_only_attn_type: *AttenType 
+            use_checkpoint: True
+            in_channels: 8
+            hint_channels: 19
+            model_channels: 320
+            attention_resolutions: [ 4, 2, 1 ]
+            num_res_blocks: 2
+            channel_mult: [ 1, 2, 4, 4 ]
+            num_head_channels: 64
+            use_spatial_transformer: True
+            use_linear_in_transformer: True
+            transformer_depth: 1
+            context_dim: 1024
+            legacy: False
+            control_scales: 1.0
+            alpha: 1
+            num_frames: *FrameLength
+
+    conditioner_config:
+      target: sgm.modules.GeneralConditioner
+      params:
+        emb_models:
+          # crossattn cond
+          - is_trainable: False
+            input_key: txt
+            ucg_rate: 0.1    
+            target: sgm.modules.encoders.modules.FrozenOpenCLIPEmbedder
+            params:
+              freeze: true
+              layer: penultimate
+          # control
+          - is_trainable: False
+            input_key: cond_img  # output_key: cond_feat
+            ucg_rate: 0.0
+            target: sgm.modules.encoders.modules.IdentityEncoder
+          # concat
+          - is_trainable: False
+            input_key: *cond_image_type  #output_key: concat
+            ucg_rate: 0.0
+            target: sgm.modules.encoders.modules.VAEEmbedder
+
+    first_stage_config: 
+      target: sgm.models.autoencoder.AutoencoderKLInferenceWrapper
+      params:
+        embed_dim: 4
+        monitor: val/rec_loss
+        ddconfig:
+          double_z: true
+          z_channels: 4
+          resolution: 256
+          in_channels: 3
+          out_ch: 3
+          ch: 128
+          ch_mult: [1, 2, 4, 4]
+          num_res_blocks: 2
+          attn_resolutions: []
+          dropout: 0.0
+        lossconfig:
+          target: torch.nn.Identity
+
+    sampler_config:
+      target: sgm.modules.diffusionmodules.sampling.EulerEDMSampler
+      params:
+        num_steps: *SampleStep
+
+        discretization_config:
+          target: sgm.modules.diffusionmodules.discretizer.LegacyDDPMDiscretization
+
+        guider_config:
+          target: sgm.modules.diffusionmodules.guiders.VanillaCFG
+          params:
+            scale: 5.0
+
+
+
+
