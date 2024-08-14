@@ -36,7 +36,7 @@ Yuqing Wen<sup>1*&dagger;</sup>, Yucheng Zhao<sup>2*</sup>,Yingfei Liu<sup>2*</s
 #
 ### News
 * **`Aug. 14th, 2024`:** 
-We release an enhanced version of Panacea, named Panancea+, which have enhanced performance and comprehensive validation on multiple datasets and tasks. For more details, please refer to the paper Panacea+[![arXiv]().
+We release an enhanced version of Panacea, named Panancea+, which has enhanced performance and comprehensive validation on multiple datasets and tasks. For more details, please refer to the paper Panacea+[![arXiv]().
 * **`Aug. 14th, 2024`:** 
 We release the checkpoint and inference scripts for stage 2 of Panacea+, you can use it to generate multi-view video samples based on BEV layout sequences.
 
@@ -55,7 +55,7 @@ Following the instruction from: [**Environment Setup.**](./docs/generation_envir
 
 ## Prepare dataset
 
-Prepare *real dataset* following the instruction from [**Data Preparation.**](./metrics/StreamPETR/docs/data_preparation.md)
+Prepare real dataset following the instruction from [**Data Preparation.**](./metrics/StreamPETR/docs/data_preparation.md)
 
 Remember to put the dataset under the path *data/nuscenes*
 
@@ -67,11 +67,11 @@ Put it to folder *checkpoints/*
 
 ## Inference
 
-*--split* to specify train or val sets 
+*--split*: to specify train or val sets 
 
 *--use_last_frame=true* means use the last frame as conditional image.
 
-Run the following command to inference the second stage on the whole training/val set of nuscenes.
+Run the following command to inference stage 2 on the whole training/val set of nuscenes.
 
 ```bash
 python -m torch.distributed.launch --nproc_per_node=8 --master_port=1238 inference.py --base configs/inference_nuscenes.yaml --ckptpath --ckpt checkpoints/panaceaplus_40k_deepspeed.ckpt --split train --use_last_frame true --name EXP_NAME --bs 1
