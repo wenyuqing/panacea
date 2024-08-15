@@ -16,7 +16,7 @@ Yuqing Wen<sup>1*&dagger;</sup>, Yucheng Zhao<sup>2*</sup>,Yingfei Liu<sup>2*</s
             <sup>&dagger;</sup>This work was done during the internship at MEGVII, 
             <sup>&Dagger;</sup>Corresponding Author.
 
->[Paper] [**Panacea+: Panoramic and Controllable Video Generation for Autonomous Driving**](),            
+>[Paper] [**Panacea+: Panoramic and Controllable Video Generation for Autonomous Driving**](https://arxiv.org/abs/2408.07605),            
 Yuqing Wen<sup>1*&dagger;</sup>, Yucheng Zhao<sup>2*</sup>,Yingfei Liu<sup>2*</sup>, Binyuan Huang<sup>4*</sup>, Fan Jia<sup>2</sup>, 
             Yanhui Wang<sup>1</sup>,
             Chi Zhang<sup>3</sup>, 
@@ -35,9 +35,10 @@ Yuqing Wen<sup>1*&dagger;</sup>, Yucheng Zhao<sup>2*</sup>,Yingfei Liu<sup>2*</s
 
 #
 ### News
-* **`Aug. 14th, 2024`:** 
-We release an enhanced version of Panacea, named Panancea+, which has enhanced performance and comprehensive validation on multiple datasets and tasks. For more details, please refer to the paper Panacea+[![arXiv]().
-* **`Aug. 14th, 2024`:** 
+* **`Aug. 15th, 2024`:** 
+We release an enhanced version of Panacea, named Panancea+, which has improved performance and comprehensive validation on multiple datasets and tasks. For more details, please refer to the paper Panacea+[![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2408.07605).
+
+* **`Aug. 15th, 2024`:** 
 We release the checkpoint and inference scripts for stage 2 of Panacea+, you can use it to generate multi-view video samples based on BEV layout sequences.
 
 * **`Apr. 18th, 2024`:** 
