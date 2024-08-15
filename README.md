@@ -138,13 +138,21 @@ python -m torch.distributed.launch --nproc_per_node=8 --master_port=1238 inferen
             <a name="bib"></a>
             <pre style="margin-top: 5px;" class="bibtex">
                 <code>
-@artical{@misc{wen2023panacea,
-    title={Panacea: Panoramic and Controllable Video Generation for Autonomous Driving}, 
-    author={Yuqing Wen and Yucheng Zhao and Yingfei Liu and Fan Jia and Yanhui Wang and Chong Luo and Chi Zhang and Tiancai Wang and Xiaoyan Sun and Xiangyu Zhang},
-    year={2023},
-    eprint={2311.16813},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
+@inproceedings{wen2024panacea,
+  title={Panacea: Panoramic and controllable video generation for autonomous driving},
+  author={Wen, Yuqing and Zhao, Yucheng and Liu, Yingfei and Jia, Fan and Wang, Yanhui and Luo, Chong and Zhang, Chi and Wang, Tiancai and Sun, Xiaoyan and Zhang, Xiangyu},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={6902--6912},
+  year={2024}
+}
+@misc{wen2024panaceapanoramiccontrollablevideo,
+      title={Panacea+: Panoramic and Controllable Video Generation for Autonomous Driving}, 
+      author={Yuqing Wen and Yucheng Zhao and Yingfei Liu and Binyuan Huang and Fan Jia and Yanhui Wang and Chi Zhang and Tiancai Wang and Xiaoyan Sun and Xiangyu Zhang},
+      year={2024},
+      eprint={2408.07605},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2408.07605}, 
 }
 }</code></pre>
         </div>
